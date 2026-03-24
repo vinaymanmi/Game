@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>counting...</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    height: 100vh;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #BFC9D1;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+
+.nav{
+    background-color: #25343F;
+    padding: 30px 30px;
+    position: fixed;
+    top: 0;
+    width: 96.5%;
+}
+
+.on{
+    color: #25343F;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+}
+
+.nav ul{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between
+}
+
+ul h2{
+    font-size: 30px;
+    color: #BFC9D1;
+    font-family: cursive;
+}
+
+li a{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #BFC9D1;
+    padding: 6px 10px;
+    transition: 0.3s;
+}
+
+li a:hover{
+    border-bottom: 4px solid #ff9c51a1;
+}
+
+.home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    height: 100vh;
+    color: #25343F;
+}
+
+.home h1{
+    font-size: 54px;
+    text-align: center;
+    animation: slideUp 1s ease-out;
+
+}
+@keyframes slideUp{
+    0%{
+        opacity:0;
+        transform: translateY(50px);
+    }
+
+    100%{
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+
+.home button{
+    background-color: #ff9c51;
+    padding: 10px 30px;
+    font-size: 18px;
+    border: 2px solid #25343F;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    animation: bounce 2s ease-in-out,infinite;
+}
+
+
+.home button:hover{
+    background-color: #BFC9D1;
+    border-radius: 10px 0 10px 0;
+    box-shadow: 0 0 20px #ff9c51;
+    transform: scale(1.1);
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+.home button a{
+    text-decoration: none;
+    color: #25343F;
+    font-weight: 600;
+}
+
+
+
+.counting-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #25343F;
+    height: 100vh;
+}
+
+.game-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    border: 1px solid #25343F;
+    background-color: #ff9c5198;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #25343F;
+}
+
+
+.counting-box h2{
+    font-size: 40px;
+}
+
+.counting-box p{
+    font-size: 34px;
+    font-weight: 500;
+    font-family: monospace;
+}
+
+.counting-box button{
+    font-size: 18px;
+    font-weight: 500;
+    color: #25343F;
+    border: none;
+    border-radius: 8px;
+    border: 1px solid #25343F;
+    background: none;
+    padding: 4px 10px;
+    cursor: pointer;
+    gap: 20px;
+    flex-direction: column;
+    transition: 0.3s;
+}
+
+.counting-box button:hover{
+    background-color: #25343F;
+    color: #BFC9D1;
+}
+
+.help{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.help .help-content{
+    display: flex;
+    align-items: center;
+}
+
+.help .rulesList{
+    display: flex;
+    flex-direction: column;
+}
+
+.help h2{
+    font-size: 30px;
+}
+
+.help ol{
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.help ol li{
+    font-size: 18px;
+}
+
+.help ul{
+    list-style: disc;
+    padding-left: 42px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.help ul li{
+    font-size: 18px;
+}
+
+.help ul p{
+    font-size: 18px;
+}
+
+.help .play-btn{
+    margin-left: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.help .play-btn .opt{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.help .play-btn p{
+    color: #25343F;
+    font-size: 18px;
+    font-weight: 550;
+}
+
+.help .play-btn a{
+    text-decoration: none;
+    color: #25343F;
+    font-size: 18px;
+    font-weight: 550;
+    border: 0.5px solid #25343F;
+    padding: 5px 10px;
+    border-radius: 6px;
+    transition: 0.4s;
+}
+
+.help .play-btn a:hover{
+    background-color: #25343F;
+    color: #BFC9D1;
+    box-shadow: 0 0 20px #ff9c51;
+}
+
+    </style>
+</head> 
+<body>
+
+    <div class="nav">
+        <ul>
+            <li><a href="#help">Help</a></li>
+            <h2>COUNTER</h2>
+            <li><a href="#play">Play</a></li>
+        </ul>
+    </div>
+
+
+    <div class="home" id="home">
+        <h1>Wel Come!! To The Counting App</h1>
+        <button><a href="#play">Let's Play >></a></button>
+    </div>
+    
+    <div class="counting-box" id="play">
+        <div class="game-box">
+            <h2>Click and Count</h2>
+            <p id="zero">0</p>
+            <div class="btns">
+                <button id="increase" onclick="increasing();">Increase</button>
+                <button id="reset"" onclick="reset()">Reset</button>
+                <button id="decrease" onclick="decreasing()">Decrease</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="help">
+        <h2>How to use the Counter: </h2>
+        
+        <div class="help-content" id="help"
+            <div class="rulesList">
+                <ol type="1">
+                    <li>Start with a number
+                        <br>
+                        <br>
+                        <ul>
+                            <li>The app should start counting from 0 (or any default number).</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>Increase button
+                        <br><br>
+                        <ul>
+                            <li>When the user clicks <b>Increase</b> (+) → the number should increase by 1.</li>
+                            <p>Example: <br>0 → 1 → 2 → 3</p>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>
+                        Decrease button
+                        <br> <br>
+                        <ul>
+                            <li>When the user clicks <b>Decrease</b> (-) → the number should decrease by 1.</li>
+                            <p>Example: <br>3 → 2 → 1 → 0</p>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>
+                        Reset button
+                        <br><br>
+                        <ul>
+                            <li>When the user clicks <b>Reset</b> → the number should go back to 0.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div class="play-btn">
+                    <p>Are you  sure to Count??</p>
+                    <div class="opt">
+                        <p><a href="#play">Yes</a></p>
+                        <p><a href="#home">No</a></p></div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <script >
+        let textValue = document.getElementById("zero");
+
+console.log(textValue);
+console.log(Number(textValue.innerText));
+
+function increasing(){
+    let integerValue = parseInt(textValue.innerText);  //Converts stringType value to numberType
+    let updatedValue = integerValue + 1;  //Adding 1
+    textValue.innerText = updatedValue;  //Now numberType value stored as string
+    console.log(integerValue);
+}
+
+function reset(){
+    textValue.innerText = 0;
+}
+
+function decreasing(){
+    let integerValue = parseInt(textValue.innerText);
+    let updatedValue = integerValue - 1;
+    textValue.innerText = updatedValue;
+    console.log(integerValue);
+}
+
+    </script>
+
+</body>
+</html>
